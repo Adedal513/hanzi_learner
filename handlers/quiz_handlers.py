@@ -50,12 +50,12 @@ async def handle_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if answer == current_quiz['correct']:
         await query.edit_message_caption(
             "✅ Верно!\n\n"
-            f"{current_quiz['character']} значит: {current_quiz['correct']}n"
+            f"{current_quiz['character']} значит: {current_quiz['correct']}\n"
             )
         await start_quiz(update, context)
     else:
         await query.edit_message_caption(
-            f"❌ Неверно. Ты выбрал: {answer}\n"
+            f"❌ Неверно.\n\nТы выбрал: {answer}\n"
             f"Правильный ответ: {current_quiz['correct']}\n\n"
             "Попробуй ещё раз:",
             reply_markup=InlineKeyboardMarkup([
